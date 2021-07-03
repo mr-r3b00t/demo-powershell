@@ -1,4 +1,14 @@
 
+#
+# This function wraps the session management involved in calling Invoke-Command.
+# I read something somewhere about making sure you don't 'leak' PSSessions for security and performance reasons.
+# Or maybe I don't like typing ;)
+#
+# e.g.
+# Import-Module Invoke-Machines.psm1
+# Invoke-Fleet -ComputerName $Computers -ScriptBlock { $Env:COMPUTERNAME } -Credential (Get-Credential)
+#
+
 function Invoke-Machines {
     [CmdletBinding()]
     param (
